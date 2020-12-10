@@ -1,6 +1,7 @@
 type Query {
   SeasonsList: [Season!]!
-  RacesByYear(year:String!):[Race!]!
+  RacesByYear(year: String!): [Race!]!
+  RaceSelect(year: String!, round: Intr!): Race
 }
 
 # JSON to TS (JSON to ts.com) to obtain the schema of a JSON object in API
@@ -46,31 +47,31 @@ type Season {
 
 "Race info, obtain from API REST"
 type Race {
-    season: String!
-    round:String!
-    url:String!
-    "name is equal to raceName in API REST"
-    name:String! 
-    "circuit is equal to Circuit in API REST"
-    circuit: Circuit!
-    date:String!
-    "time isn't required because the oldest races don't have it"
-    time:String
+  season: String!
+  round: String!
+  url: String!
+  "name is equal to raceName in API REST"
+  name: String!
+  "circuit is equal to Circuit in API REST"
+  circuit: Circuit!
+  date: String!
+  "time isn't required because the oldest races don't have it"
+  time: String
 }
 "Circuit info, obtain from API REST"
-type Circuit{
-    "id is equal to ciruitId in API REST"
-    id:String!
-    url:String!
-    "name is equal to circuitName in API REST"
-    name:String!
-    "location is equal to Location in API REST"
-    location: Location!
+type Circuit {
+  "id is equal to ciruitId in API REST"
+  id: String!
+  url: String!
+  "name is equal to circuitName in API REST"
+  name: String!
+  "location is equal to Location in API REST"
+  location: Location!
 }
 "Race Location, obtain from API REST"
 type Location {
-    lat: String!
-    long:String!
-    locality:String!
-    country:String!
+  lat: String!
+  long: String!
+  locality: String!
+  country: String!
 }

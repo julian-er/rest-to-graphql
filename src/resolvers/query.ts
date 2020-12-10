@@ -20,6 +20,15 @@ const resolvers: IResolvers = {
         }
       );
     },
+    //dataSources from server.ts , acces to declared races and then to function defined in data-seasons.ts
+    async RaceSelect(_: void, { year, round }, { dataSources }) {
+        return await dataSources.races.getYearRound(year, round).then(
+          // this structure came from data in API REST
+          (data: any) => {
+            return data.MRData.RaceTable.Races[0];
+          }
+        );
+      },
   },
 };
 
