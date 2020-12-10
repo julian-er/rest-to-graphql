@@ -10,3 +10,8 @@ export function yearHandler(year: string) {
   }
   return year;
 }
+
+//if round >= 100 always return 1
+export function roundCheck(round:number){
+    return (round>=100)? 1: round;
+}
