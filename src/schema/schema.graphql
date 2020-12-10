@@ -50,6 +50,7 @@ type Race {
   season: String!
   round: String!
   url: String!
+  urlMobile: String!
   "name is equal to raceName in API REST"
   name: String!
   "circuit is equal to Circuit in API REST"
@@ -63,6 +64,7 @@ type Circuit {
   "id is equal to ciruitId in API REST"
   id: String!
   url: String!
+  urlMobile: String!
   "name is equal to circuitName in API REST"
   name: String!
   "location is equal to Location in API REST"
