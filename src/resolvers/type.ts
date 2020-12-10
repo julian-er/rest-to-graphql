@@ -25,6 +25,9 @@ const type: IResolvers = {
     location: parent=> parent.Location,
     //resolve urlMobile with url mobile importing function from utils
     urlMobile: parent => getWikipediaMobileUrl(parent.url)
+  },
+  Driver:{
+    name: parent => parent.givenName + ' ' +  parent.familyName
   }
 };
 

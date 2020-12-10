@@ -95,8 +95,7 @@ type Location {
 type Driver {
     driverId: String!
     url:String!
-    givenName:String!
-    familyName:String!
+    name: String!
     dateOfBirth:String!
     nationality:String!
     code:String
