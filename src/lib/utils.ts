@@ -15,3 +15,23 @@ export function yearHandler(year: string) {
 export function roundCheck(round: number) {
   return round >= 100 ? 1 : round;
 }
+
+// mock Object for bad requests!
+export let emptyData = {
+  season: 'Bad Request! - Check round number, must be between 1 and 99  ',
+  round: '',
+  url: '',
+  raceName: 'Bad Request! - Check round number, must be between 1 and 99 ',
+  Circuit: {
+    circuitId: 'Bad Request! - Check round number, must be between 1 and 99 ',
+    url: '',
+    circuitName: '',
+    Location: {
+      lat: '',
+      long: '',
+      locality: '',
+      country: '',
+    },
+  },
+  date: '',
+};

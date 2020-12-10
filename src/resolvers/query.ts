@@ -25,7 +25,7 @@ const resolvers: IResolvers = {
         return await dataSources.races.getYearRound(year, round).then(
           // this structure came from data in API REST
           (data: any) => {
-            return data.MRData.RaceTable.Races[0];
+            return data;
           }
         );
       },
