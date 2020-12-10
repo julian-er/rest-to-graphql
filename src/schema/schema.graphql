@@ -8,6 +8,8 @@ type Query {
 #     url: string;
 # }
 #Convert to schema graphQL
+
+"Seasons info, obtain from API REST"
 type Season {
   year: String!
   url: String!
