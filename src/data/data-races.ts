@@ -19,7 +19,7 @@ export class RacesData extends F1 {
     year = yearHandler(year);
     let data;
     if (round >= 100 || round <= 0 ) {
-      data = Object.assign(emptyData, {round: round}) 
+      data = Object.assign(emptyData, {season: year, round: round}) 
     } else {
       data = await this.get(`${year}/${round}.json`, {
         //Add cache for an hour
