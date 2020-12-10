@@ -1,10 +1,15 @@
 type Query {
-    hello: String!
-    helloWithName(name: String!): String!
-    helloToGraphQLCourse: String!
-    list: [String]
+  SeasonsList: [Season!]!
 }
 
-type Mutation {
-    add(value: String!): [String]
+# JSON to TS (JSON to ts.com) to obtain the schema of a JSON object in API
+# interface Season {
+#     season: string;
+#     url: string;
+# }
+#Convert to schema graphQL
+type Season {
+  year: String!
+  url: String!
+  urlMobile: String!
 }
