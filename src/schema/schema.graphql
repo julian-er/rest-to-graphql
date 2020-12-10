@@ -77,3 +77,27 @@ type Location {
   locality: String!
   country: String!
 }
+
+# JSON to TS (JSON to ts.com) to obtain the schema of a JSON object in API
+# interface Driver {
+#     driverId: string;
+#     url:string;
+#     givenName:string;
+#     familyName:string;
+#     dateOfBirth: string;
+#     nationality:string;
+#     code?:string;
+#     permanentNumber?:string;
+# }
+#Convert to schema graphQL
+
+type Driver {
+    driverId: String!
+    url:String!
+    givenName:String!
+    familyName:String!
+    dateOfBirth:String!
+    nationality:String!
+    code:String
+    permanentNumber:String
+}
