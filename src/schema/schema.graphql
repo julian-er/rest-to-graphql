@@ -54,7 +54,8 @@ type Race {
     "circuit is equal to Circuit in API REST"
     circuit: Circuit!
     date:String!
-    time:String!
+    "time isn't required because the oldest races don't have it"
+    time:String
 }
 "Circuit info, obtain from API REST"
 type Circuit{
