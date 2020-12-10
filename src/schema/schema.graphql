@@ -1,7 +1,7 @@
 type Query {
   SeasonsList: [Season!]!
   RacesByYear(year: String!): [Race!]!
-  RaceSelect(year: String!, round: Intr!): Race
+  RaceSelect(year: String!, round: Int!): Race
 }
 
 # JSON to TS (JSON to ts.com) to obtain the schema of a JSON object in API
