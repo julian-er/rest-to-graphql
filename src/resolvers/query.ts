@@ -1,9 +1,9 @@
 import { IResolvers } from 'graphql-tools';
 
-const query: IResolvers = {
+const resolvers: IResolvers = {
     Query: {
      
     }
 };
 
-export default query;
+export default resolvers;
