@@ -15,8 +15,11 @@ const type: IResolvers = {
     circuit: parent => parent.Circuit
   },
   Circuit:{
+    //resolve names, in API REST, is a circuitId. Here I want to name this with id word
     id: parent => parent.circuitId,
+    //resolve names, in API REST, is a circuitName. Here I want to name this with name word    
     name: parent => parent.circuitName,
+    //resolve names, in API REST, is a Location. Here I want to name this with location word
     location: parent=> parent.Location
   }
 };
