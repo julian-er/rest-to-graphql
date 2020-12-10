@@ -1,4 +1,3 @@
-// Añadir los imports
 import express from 'express';
 import compression from 'compression';
 import cors from 'cors';
@@ -8,31 +7,38 @@ import { createServer } from 'http';
 import expressPlayGround from 'graphql-playground-middleware-express';
 
 async function init() {
-    // Inicializamos la aplicación express
-    const app = express();
+  // Init express app
+  const app = express();
+  const PORT = process.env.PORT || 3000; 
+  //settings
+  app.set('port', PORT);
+  app.use('*', cors());
+  app.use(compression());
 
-    // Añadimos configuración de Cors y compression
-    app.use('*', cors());
+  // Init Apollo server (if you like, could use graphiQL)
+  const server = new ApolloServer({
+    schema,
+    introspection: true,
+  });
 
-    app.use(compression());
+  server.applyMiddleware({ app });
 
-    // Inicializamos el servidor de Apollo
-    const server = new ApolloServer({
-        schema,
-        introspection: true // Necesario
-    });
+  //define endpoint with expressPlayground
+  app.use(
+    '/',
+    expressPlayGround({
+      endpoint: '/graphql',
+    })
+  );
 
-    server.applyMiddleware({ app });
 
-    app.use('/', expressPlayGround({
-        endpoint: '/graphql'
-    }));
+  const httpServer = createServer(app);
 
-    const PORT = process.env.PORT || 5000;
-
-    const httpServer = createServer(app);
-
-    httpServer.listen({ port: PORT }, (): void => console.log(`http://localhost:${PORT}/graphql`));
+  //starting server
+  httpServer.listen(app.get('port'), () => {
+    console.log(`server on port http://localhost:${app.get('port')}/`);
+    console.log(`server apollo on http://localhost:${app.get('port')}/graphql`);
+  });
 }
 
 init();
