@@ -23,6 +23,7 @@ async function init() {
     //add dataSources
     dataSources: () => ({
       seasons: new dataSources.SeasonsData(),
+      races: new dataSources.RacesData(),
     }),
   });
 
