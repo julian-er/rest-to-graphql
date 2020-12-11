@@ -13,6 +13,7 @@ type Query {
   DriversByYearAndRound(year: String!, round: Int!): [Driver!]!
   "You must provide the ID of the driver, if the driver doesn't exist you'll see null"
   DriverById(id:String!):Driver
+  "This provide the standing list of te season"
   StandingData(year: String!): [DriverStanding]!
 }
 
