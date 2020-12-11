@@ -48,4 +48,12 @@ export class DriversData extends F1 {
       cacheOptions: { ttl: 60 },
     });
   }
+  // Access to seasons in API REST, only need the path. Base path URL already exists in data-source.ts (F1 class)
+  async getStandings(year: string) {
+    year = yearHandler(year);
+    return await this.get(`${year}/driverStandings.json`, {
+      //Add cache for an hour
+      cacheOptions: { ttl: 60 },
+    });
+  }
 }

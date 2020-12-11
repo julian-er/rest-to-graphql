@@ -64,7 +64,17 @@ const resolvers: IResolvers = {
             return data.MRData.DriverTable.Drivers[0];
           }
         );
-      },  
+      },
+    //dataSources from server.ts , acces to declared seasons and then to function defined in data-seasons.ts
+    async StandingData (_: void, { year }, { dataSources }) {
+        return await dataSources.drivers.getStandings(year).then(
+          // this structure came from data in API REST
+          (data: any) => {
+            return data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+          }
+        );
+      }
+      
 },
 };
 
