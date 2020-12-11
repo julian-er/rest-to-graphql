@@ -1,4 +1,4 @@
-import { yearHandler } from '../lib/utils';
+import { roundCheck, yearHandler } from '../lib/utils';
 import { F1 } from './data-source';
 
 export class DriversData extends F1 {
@@ -31,4 +31,15 @@ export class DriversData extends F1 {
       cacheOptions: { ttl: 60 },
     });
   }
+
+   // Access to seasons in API REST, only need the path. Base path URL already exists in data-source.ts (F1 class)
+   async getDriversByYearAndRound(year: string, round: number) {
+    year = yearHandler(year);
+    round = roundCheck(round)
+    return await this.get(`${year}/${round}/drivers.json`, {
+      //Add cache for an hour
+      cacheOptions: { ttl: 60 },
+    });
+  }
+  
 }
