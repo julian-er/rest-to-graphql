@@ -1,8 +1,12 @@
 type Query {
+  "Check data of the all seasons!"  
   SeasonsList: [Season!]!
+  "You must pass the year as a parameter (string) to filter the races. If the year entered does not coincide with the years where there were careers, from 1950 to the present, the current year is automatically set."
   RacesByYear(year: String!): [Race!]!
+  "You must provide the year and round of the race you're looking for. If the round <0 || round >100 the sistem inform that, but, if you select a round without a career you'll see an empty body"
   RaceSelect(year: String!, round: Int!): Race
-  HistoryDrivers: [Driver!]!
+  "pageElement and page are for limit the results, if you wish you can omit that parameters"
+  HistoryDrivers(pageElement:Int, page:Int): [Driver!]!
 }
 
 # JSON to TS (JSON to ts.com) to obtain the schema of a JSON object in API
