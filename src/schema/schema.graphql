@@ -7,6 +7,8 @@ type Query {
   RaceSelect(year: String!, round: Int!): Race
   "pageElement and page are for limit the results, if you wish you can omit that parameters"
   HistoryDrivers(pageElement:Int, page:Int): [Driver!]!
+  "You must pass the year as a parameter (string) to filter the drivers. If the year entered does not coincide with the years where there were careers, from 1950 to the present, the current year is automatically set."
+  DriversByYear(year:String!):[Driver!]!
 }
 
 # JSON to TS (JSON to ts.com) to obtain the schema of a JSON object in API
