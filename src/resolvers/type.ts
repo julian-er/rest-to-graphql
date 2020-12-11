@@ -27,7 +27,7 @@ const type: IResolvers = {
     urlMobile: parent => getWikipediaMobileUrl(parent.url)
   },
   Driver:{
-    name: parent => parent.givenName + ' ' +  parent.familyName
+    name: parent => parent.familyName + ' ' +  parent.givenName
   }
 };
 
