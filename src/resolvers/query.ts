@@ -56,7 +56,15 @@ const resolvers: IResolvers = {
           }
         );
       },  
-      
+    //dataSources from server.ts , acces to declared seasons and then to function defined in data-seasons.ts
+    async DriverById (_: void, { id }, { dataSources }) {
+        return await dataSources.drivers.getDriversById(id).then(
+          // this structure came from data in API REST
+          (data: any) => {
+            return data.MRData.DriverTable.Drivers[0];
+          }
+        );
+      },  
 },
 };
 

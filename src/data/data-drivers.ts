@@ -32,14 +32,20 @@ export class DriversData extends F1 {
     });
   }
 
-   // Access to seasons in API REST, only need the path. Base path URL already exists in data-source.ts (F1 class)
-   async getDriversByYearAndRound(year: string, round: number) {
+  // Access to seasons in API REST, only need the path. Base path URL already exists in data-source.ts (F1 class)
+  async getDriversByYearAndRound(year: string, round: number) {
     year = yearHandler(year);
-    round = roundCheck(round)
+    round = roundCheck(round);
     return await this.get(`${year}/${round}/drivers.json`, {
       //Add cache for an hour
       cacheOptions: { ttl: 60 },
     });
   }
-  
+  // Access to seasons in API REST, only need the path. Base path URL already exists in data-source.ts (F1 class)
+  async getDriversById(id: string) {
+    return await this.get(`/drivers/${id}.json`, {
+      //Add cache for an hour
+      cacheOptions: { ttl: 60 },
+    });
+  }
 }
