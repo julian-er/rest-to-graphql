@@ -13,7 +13,7 @@ export function yearHandler(year: string) {
 
 //if round >= 100 always return 1
 export function roundCheck(round: number) {
-  return round >= 100 ? 1 : round;
+  return (!(round >= 100) || !(round <=0)) ? 1 : round;
 }
 
 // mock Object for bad requests!
